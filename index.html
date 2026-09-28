@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conecta GP | Grande Prêmio da Transformação Digital</title>
+
+<style>
+:root{
+    --navy:#07162f;
+    --navy2:#0d2448;
+    --blue:#0879e8;
+    --red:#e51b23;
+    --green:#16a76b;
+    --yellow:#ffc928;
+    --orange:#ff7a00;
+    --purple:#7837d5;
+    --white:#ffffff;
+    --light:#f3f6fa;
+    --text:#14233a;
+    --muted:#66758a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:var(--light);
+    line-height:1.6;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(7,22,47,.97);
+    box-shadow:0 3px 15px rgba(0,0,0,.18);
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    color:white;
+    font-size:22px;
+    font-weight:900;
+    font-style:italic;
+    text-decoration:none;
+}
+
+.brand span{color:var(--red)}
+
+nav{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+nav a:hover{color:var(--yellow)}
+
+/* HERO */
+
+.hero{
+    color:white;
+    min-height:620px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 80% 30%,rgba(0,121,232,.38),transparent 30%),
+      linear-gradient(120deg,#050b18,#071b39 55%,#102d55);
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:18px;
+    background:
+    repeating-linear-gradient(
+        90deg,
+        white 0 25px,
+        #111 25px 50px
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+}
+
+.tag{
+    display:inline-block;
+    background:var(--red);
+    padding:7px 14px;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+    transform:skew(-8deg);
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+    line-height:.94;
+    text-transform:uppercase;
+    font-style:italic;
+    margin-bottom:20px;
+}
+
+.hero h1 span{color:var(--yellow)}
+
+.hero p{
+    font-size:20px;
+    max-width:720px;
+    color:#dce8f8;
+}
+
+.hero-actions{
+    margin-top:35px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:6px;
+    font-weight:bold;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:14px;
+}
+
+.btn-red{background:var(--red);color:white}
+.btn-white{background:white;color:var(--navy)}
+
+/* SECTIONS */
+
+section{padding:85px 0}
+
+.section-title{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 50px;
+}
+
+.eyebrow{
+    color:var(--red);
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.05;
+    color:var(--navy);
+    margin:8px 0 14px;
+}
+
+.section-title p{color:var(--muted)}
+
+/* INTRO */
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(20,35,58,.08);
+}
+
+.card .icon{font-size:36px;margin-bottom:12px}
+
+.card h3{
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+/* CIRCUIT */
+
+.dark{
+    background:var(--navy);
+    color:white;
+}
+
+.dark .section-title h2{color:white}
+.dark .section-title p{color:#b9c9dd}
+
+.circuit{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+
+.stage{
+    position:relative;
+    background:#10294f;
+    border-top:5px solid var(--blue);
+    padding:24px 16px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.stage:nth-child(2){border-color:var(--orange)}
+.stage:nth-child(3){border-color:var(--yellow)}
+.stage:nth-child(4){border-color:var(--green)}
+.stage:nth-child(5){border-color:var(--purple)}
+.stage:nth-child(6){border-color:var(--red)}
+
+.number{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:white;
+    color:var(--navy);
+    display:grid;
+    place-items:center;
+    margin:0 auto 12px;
+    font-weight:900;
+}
+
+.stage h3{font-size:16px}
+
+/* SCORE */
+
+.score-table{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.score-row{
+    display:grid;
+    grid-template-columns:1fr 120px;
+    padding:18px 24px;
+    border-bottom:1px solid #e4e9ef;
+    align-items:center;
+}
+
+.score-row strong:last-child{
+    color:var(--red);
+    font-size:22px;
+    text-align:right;
+}
+
+.score-total{
+    background:var(--navy);
+    color:white;
+}
+
+.score-total strong:last-child{color:var(--yellow)}
+
+.turbo{
+    max-width:900px;
+    margin:20px auto 0;
+    padding:22px;
+    border-left:6px solid var(--yellow);
+    background:#fff7d5;
+    border-radius:6px;
+}
+
+/* PIT STOP */
+
+.pit-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.pit{
+    background:#10294f;
+    padding:25px;
+    border-radius:10px;
+}
+
+.pit h3{color:var(--yellow);margin-bottom:8px}
+.pit p{color:#d3deec}
+
+/* GPS */
+
+.gps{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.gp{
+    background:white;
+    padding:25px 18px;
+    border-radius:10px;
+    text-align:center;
+    border-bottom:5px solid var(--red);
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+}
+
+.gp .flag{font-size:32px}
+.gp h3{font-size:17px;margin:10px 0}
+
+/* TROPHIES */
+
+.trophies{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.trophy{
+    background:white;
+    border-radius:10px;
+    padding:25px;
+    text-align:center;
+}
+
+.trophy .cup{font-size:42px}
+.trophy h3{margin:8px 0;color:var(--navy)}
+.trophy p{font-size:14px;color:var(--muted)}
+
+/* FLAGS */
+
+.flags{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.flag-card{
+    background:white;
+    border-radius:10px;
+    padding:25px;
+}
+
+.flag-card span{font-size:35px}
+
+/* RULES */
+
+.rules{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.rule-box{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+}
+
+.rule-box h3{
+    color:var(--navy);
+    margin-bottom:15px;
+}
+
+.rule-box ul{
+    padding-left:20px;
+}
+
+.rule-box li{margin-bottom:9px}
+
+/* DRIVER */
+
+.driver{
+    background:linear-gradient(120deg,var(--red),#a50910);
+    color:white;
+}
+
+.driver-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.driver h2{
+    font-size:45px;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.checklist{
+    background:white;
+    color:var(--text);
+    padding:30px;
+    border-radius:12px;
+}
+
+.check{
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* FOOTER */
+
+footer{
+    background:#040b17;
+    color:#aab9ca;
+    padding:45px 0;
+    text-align:center;
+}
+
+footer strong{color:white}
+
+/* MOBILE */
+
+@media(max-width:900px){
+    nav{display:none}
+    .intro-grid,.pit-grid,.flags{grid-template-columns:1fr}
+    .circuit{grid-template-columns:repeat(2,1fr)}
+    .gps{grid-template-columns:1fr 1fr}
+    .trophies{grid-template-columns:1fr 1fr}
+    .rules,.driver-box{grid-template-columns:1fr}
+}
+
+@media(max-width:560px){
+    .gps,.trophies,.circuit{grid-template-columns:1fr}
+    .hero{min-height:560px}
+    section{padding:60px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+    <a href="#" class="brand">CONECTA <span>GP</span></a>
+
+    <nav>
+        <a href="#campeonato">Campeonato</a>
+        <a href="#circuito">Circuito</a>
+        <a href="#pontuacao">Pontuação</a>
+        <a href="#pitstop">Pit Stops</a>
+        <a href="#gps">GPs</a>
+        <a href="#premios">Prêmios</a>
+        <a href="#regras">Regras</a>
+    </nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container hero-content">
+
+    <div class="tag">🏁 Prefeitura de Contagem</div>
+
+    <h1>
+        Grande Prêmio da<br>
+        <span>Transformação Digital</span>
+    </h1>
+
+    <p>
+        Uma corrida entre as Squads das Secretarias para transformar
+        serviços públicos em experiências digitais mais simples,
+        eficientes e próximas do cidadão.
+    </p>
+
+    <div class="hero-actions">
+        <a href="#campeonato" class="btn btn-red">Conheça o campeonato</a>
+        <a href="#regras" class="btn btn-white">Manual do piloto</a>
+    </div>
+
+</div>
+</section>
+
+<section id="campeonato">
+<div class="container">
+
+<div class="section-title">
+    <div class="eyebrow">Conecta Contagem</div>
+    <h2>Escuderias em uma mesma direção</h2>
+    <p>
+        Cada Secretaria entra na pista como uma Squad.
+        O desafio é digitalizar serviços com velocidade, qualidade,
+        colaboração e foco no cidadão.
+    </p>
+</div>
+
+<div class="intro-grid">
+
+<div class="card">
+    <div class="icon">🏎️</div>
+    <h3>As Escuderias</h3>
+    <p>
+        As Secretarias formam suas Squads, organizam seus serviços
+        e entram na corrida pela transformação digital.
+    </p>
+</div>
+
+<div class="card">
+    <div class="icon">🎯</div>
+    <h3>A Missão</h3>
+    <p>
+        Ampliar a quantidade e a qualidade dos serviços disponíveis
+        digitalmente na plataforma Conecta Contagem.
+    </p>
+</div>
+
+<div class="card">
+    <div class="icon">👨‍👩‍👧‍👦</div>
+    <h3>Quem ganha?</h3>
+    <p>
+        O campeonato reconhece as equipes, mas o principal vencedor
+        é o cidadão de Contagem.
+    </p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="circuito" class="dark">
+<div class="container">
+
+<div class="section-title">
+    <div class="eyebrow">O circuito</div>
+    <h2>Da ideia à bandeirada</h2>
+    <p>Cada serviço percorre uma jornada de transformação.</p>
+</div>
+
+<div class="circuit">
+
+<div class="stage">
+<div class="number">1</div>
+<h3>Mapear serviços</h3>
+</div>
+
+<div class="stage">
+<div class="number">2</div>
+<h3>Simplificar processos</h3>
+</div>
+
+<div class="stage">
+<div class="number">3</div>
+<h3>Criar formulários</h3>
+</div>
+
+<div class="stage">
+<div class="number">4</div>
+<h3>Construir páginas</h3>
+</div>
+
+<div class="stage">
+<div class="number">5</div>
+<h3>Publicar no Conecta</h3>
+</div>
+
+<div class="stage">
+<div class="number">6</div>
+<h3>Medir e melhorar</h3>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="pontuacao">
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">Sistema de pontuação</div>
+<h2>Cada serviço pode marcar até 100 pontos</h2>
+<p>
+Não basta publicar muito. Qualidade, impacto e experiência
+também contam no campeonato.
+</p>
+</div>
+
+<div class="score-table">
+
+<div class="score-row">
+<strong>🏎️ Digitalização do serviço</strong>
+<strong>25 pts</strong>
+</div>
+
+<div class="score-row">
+<strong>❤️ Serviço essencial / impacto</strong>
+<strong>20 pts</strong>
+</div>
+
+<div class="score-row">
+<strong>📝 Formulário e jornada digital</strong>
+<strong>15 pts</strong>
+</div>
+
+<div class="score-row">
+<strong>🌐 Página e conteúdo</strong>
+<strong>15 pts</strong>
+</div>
+
+<div class="score-row">
+<strong>💡 Inovação e integração</strong>
+<strong>15 pts</strong>
+</div>
+
+<div class="score-row">
+<strong>👥 Participação da equipe</strong>
+<strong>10 pts</strong>
+</div>
+
+<div class="score-row score-total">
+<strong>TOTAL</strong>
+<strong>100 pts</strong>
+</div>
+
+</div>
+
+<div class="turbo">
+<strong>⭐ TURBO — SERVIÇO PRIORITÁRIO</strong><br>
+Serviços considerados prioritários para o cidadão poderão receber
+multiplicador de <strong>1,25x</strong> sobre sua pontuação.
+</div>
+
+</div>
+</section>
+
+<section id="pitstop" class="dark">
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">🔧 Pit Stop</div>
+<h2>Parar também faz parte da corrida</h2>
+<p>
+Os Pit Stops são momentos de orientação, capacitação,
+validação e melhoria dos serviços.
+</p>
+</div>
+
+<div class="pit-grid">
+
+<div class="pit">
+<h3>📝 Formulário Enxuto</h3>
+<p>Eliminar perguntas e campos desnecessários.</p>
+</div>
+
+<div class="pit">
+<h3>💬 Linguagem Simples</h3>
+<p>Transformar textos burocráticos em orientações claras.</p>
+</div>
+
+<div class="pit">
+<h3>📄 Zero Papel</h3>
+<p>Buscar oportunidades para eliminar etapas físicas.</p>
+</div>
+
+<div class="pit">
+<h3>🔗 Integração</h3>
+<p>Evitar solicitar novamente dados que a Prefeitura já possui.</p>
+</div>
+
+<div class="pit">
+<h3>♿ Acessibilidade</h3>
+<p>Melhorar a experiência para diferentes públicos.</p>
+</div>
+
+<div class="pit">
+<h3>📊 Dados</h3>
+<p>Melhorar a qualidade e estrutura das informações coletadas.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="gps">
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">Temporada</div>
+<h2>Os Grandes Prêmios</h2>
+<p>
+Cada etapa coloca um aspecto diferente da transformação
+digital em evidência.
+</p>
+</div>
+
+<div class="gps">
+
+<div class="gp">
+<div class="flag">🏁</div>
+<h3>GP da Largada Digital</h3>
+<p>Mapeamento e primeiras entregas.</p>
+</div>
+
+<div class="gp">
+<div class="flag">❤️</div>
+<h3>GP Serviços Essenciais</h3>
+<p>Foco nos serviços de maior impacto.</p>
+</div>
+
+<div class="gp">
+<div class="flag">👤</div>
+<h3>GP Experiência do Cidadão</h3>
+<p>Jornadas, páginas e formulários melhores.</p>
+</div>
+
+<div class="gp">
+<div class="flag">💡</div>
+<h3>GP Inovação e Integração</h3>
+<p>Simplificação, criatividade e integração.</p>
+</div>
+
+<div class="gp">
+<div class="flag">🏆</div>
+<h3>GP Final</h3>
+<p>Resultados, reconhecimento e celebração.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="premios" class="dark">
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">Pódio</div>
+<h2>Troféus em disputa</h2>
+<p>Existem várias maneiras de chegar ao pódio.</p>
+</div>
+
+<div class="trophies">
+
+<div class="trophy">
+<div class="cup">🏆</div>
+<h3>Campeã Conecta GP</h3>
+<p>Maior pontuação geral da temporada.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">🏎️</div>
+<h3>Velocidade Digital</h3>
+<p>Maior volume de serviços qualificados publicados.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">❤️</div>
+<h3>Cidadão em Primeiro Lugar</h3>
+<p>Maior impacto em serviços essenciais.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">🎨</div>
+<h3>Experiência Digital</h3>
+<p>Melhores páginas, formulários e jornadas.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">💡</div>
+<h3>Inovação</h3>
+<p>Solução mais criativa ou processo mais simplificado.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">🔗</div>
+<h3>Integração</h3>
+<p>Melhor integração entre processos, sistemas ou dados.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">👥</div>
+<h3>Melhor Squad</h3>
+<p>Participação, colaboração e engajamento.</p>
+</div>
+
+<div class="trophy">
+<div class="cup">📈</div>
+<h3>Maior Evolução</h3>
+<p>Equipe que mais avançar durante a temporada.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="regras">
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">Regulamento</div>
+<h2>Regras da pista</h2>
+<p>
+Competição saudável, transparência e foco em resultados reais.
+</p>
+</div>
+
+<div class="rules">
+
+<div class="rule-box">
+<h3>✅ Vale ponto</h3>
+<ul>
+<li>Serviço efetivamente disponibilizado.</li>
+<li>Formulário digital funcional.</li>
+<li>Página completa e compreensível.</li>
+<li>Simplificação da jornada do cidadão.</li>
+<li>Serviço prioritário digitalizado.</li>
+<li>Integração e automação.</li>
+<li>Participação nos Pit Stops.</li>
+<li>Colaboração entre Squads.</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<h3>🚫 Não vale</h3>
+<ul>
+<li>Fragmentar artificialmente um serviço para pontuar mais.</li>
+<li>Publicar links quebrados.</li>
+<li>Contabilizar simples PDF como serviço digital completo.</li>
+<li>Publicar formulário sem funcionamento.</li>
+<li>Digitalizar uma etapa e obrigar o cidadão a repetir todo o processo presencialmente.</li>
+<li>Informações incorretas ou incompletas.</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">Bandeiras da corrida</div>
+<h2>Qualidade antes da velocidade</h2>
+</div>
+
+<div class="flags">
+
+<div class="flag-card">
+<span>🟨</span>
+<h3>Bandeira Amarela</h3>
+<p>
+O serviço precisa de ajustes e retorna ao Pit Stop
+para melhoria.
+</p>
+</div>
+
+<div class="flag-card">
+<span>🟥</span>
+<h3>Bandeira Vermelha</h3>
+<p>
+Problema relevante impede a validação ou publicação
+até sua correção.
+</p>
+</div>
+
+<div class="flag-card">
+<span>🏴</span>
+<h3>Desclassificação</h3>
+<p>
+Manipulação dos critérios ou fragmentação artificial
+pode invalidar a pontuação do serviço.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="driver">
+<div class="container driver-box">
+
+<div>
+<div class="eyebrow" style="color:#fff">Manual do piloto</div>
+<h2>Antes de entrar na pista...</h2>
+
+<p>
+Cada piloto é parte da transformação digital de Contagem.
+Antes de publicar um serviço, pense:
+<strong>isso realmente tornou a vida do cidadão mais simples?</strong>
+</p>
+</div>
+
+<div class="checklist">
+
+<div class="check">☑ O serviço está corretamente mapeado?</div>
+<div class="check">☑ O processo foi simplificado?</div>
+<div class="check">☑ O formulário pede apenas o necessário?</div>
+<div class="check">☑ A linguagem está clara?</div>
+<div class="check">☑ O cidadão consegue concluir a jornada?</div>
+<div class="check">☑ O serviço foi testado?</div>
+<div class="check">☑ A equipe participou da construção?</div>
+<div class="check">☑ Existe oportunidade de integração?</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<strong>Conecta GP — Grande Prêmio da Transformação Digital</strong>
+<p>
+Prefeitura Municipal de Contagem • Conecta Contagem
+</p>
+<p style="margin-top:10px">
+Serviços digitais hoje. Uma Contagem melhor amanhã.
+</p>
+</div>
+</footer>
+
+</body>
+</html>
